@@ -24,7 +24,16 @@ end
 def ask_floor
   puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux‐tu ?"
   print "> "
-  return gets.chomp.to_i
+  number = gets.chomp.to_i
+  if number < 1
+    puts "Donne moi un chiffre supérieur à 1"
+    ask_floor
+  elsif number > 9
+    puts "Donne moi un chiffre inférieur à 9"
+    ask_floor
+  else
+    return number
+  end
 end
 
 def build_floor(total_floor,current_floor)
